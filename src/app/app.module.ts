@@ -8,6 +8,9 @@ import { FirstDirective } from './directives/first.directive';
 import { TestComponent } from './components/test/test.component';
 import { RouterModule } from '@angular/router';
 import { TempComponent } from './components/temp/temp.component';
+import { NewComponent } from './components/new/new.component';
+import { apiService } from './services/api.service';
+import { EmployeeService } from './services/employee.service';
 
 @NgModule({
   declarations: [
@@ -16,18 +19,20 @@ import { TempComponent } from './components/temp/temp.component';
     ChildComponent,
     FirstDirective,
     TestComponent,
-    TempComponent
+    TempComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: '', component: ChildComponent },
       { path: 'temp', component: TempComponent },
-      { path: 'test', component: TestComponent }
+      { path: 'test', component: TestComponent },
+      { path: 'new', component: NewComponent },
     ]),
     FormsModule
   ],
-  providers: [],
+  providers: [apiService, EmployeeService],
   exports: [],
   bootstrap: [RootComponent]
 })

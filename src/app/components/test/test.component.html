@@ -1,5 +1,4 @@
-<p>test works!</p>
-{{str}}
-<input type="text" [value]="str">
-<label>lbl</label>
-<button (click)="BtnClick()">Btn</button>
+<input type="text" [(ngModel)]="textInput">
+<div>
+    <span>{{textInput}}</span>
+</div>
