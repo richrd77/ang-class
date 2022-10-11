@@ -11,6 +11,8 @@ import { TempComponent } from './components/temp/temp.component';
 import { NewComponent } from './components/new/new.component';
 import { apiService } from './services/api.service';
 import { EmployeeService } from './services/employee.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FakeComponent } from './components/fake/fake.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { EmployeeService } from './services/employee.service';
     FirstDirective,
     TestComponent,
     TempComponent,
-    NewComponent
+    NewComponent,
+    FakeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +32,10 @@ import { EmployeeService } from './services/employee.service';
       { path: 'temp', component: TempComponent },
       { path: 'test', component: TestComponent },
       { path: 'new', component: NewComponent },
+      { path: 'fake', component: FakeComponent },
     ]),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [apiService, EmployeeService],
   exports: [],
