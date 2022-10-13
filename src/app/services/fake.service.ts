@@ -18,9 +18,14 @@ export class FakeService {
 
     GetUsers(): Observable<User[]> {
         return this.httpClient123.get<User[]>(this.url)
-        .pipe(catchError(e => {
-            alert('error occured');
-            return EMPTY;
-        }));
+            .pipe(catchError(e => {
+                alert('error occured');
+                return EMPTY;
+            }));
+    }
+
+    PostNewUser(newUser: User): Observable<number> {
+        return this.httpClient123.post(this.url, newUser)
+            .pipe(map((response: any) => response.id));
     }
 }

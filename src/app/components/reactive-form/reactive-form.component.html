@@ -1,0 +1,27 @@
+<form [formGroup]="newUserFormGroup" (ngSubmit)="FormSubmitEvent()">
+    <div>
+        <div style="display: flex;">
+            <div>
+                <label for="n">Name</label>
+                <input formControlName="newUserName" type="text" name="n" id="n">
+            </div>
+            <div>
+                <label for="e">Email</label>
+                <input formControlName="newUserEmail" type="email" name="e" id="e">
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div>
+                <label for="w">Website</label>
+                <input formControlName="newUserWebsite" type="text" name="w" id="w">
+            </div>
+            <div>
+                <label for="c">City</label>
+                <input formControlName="newUserCity" type="text" name="c" id="c">
+            </div>
+        </div>
+        <div>
+            <button>Save</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,25 @@
+<div>
+    <div style="display: flex;">
+        <div>
+            <label for="n">Name</label>
+            <input [(ngModel)]="newUserName" type="text" name="n" id="n">
+        </div>
+        <div>
+            <label for="e">Email</label>
+            <input [(ngModel)]="newUserEmail" type="email" name="e" id="e">
+        </div>
+    </div>
+    <div style="display: flex;">
+        <div>
+            <label for="w">Website</label>
+            <input [(ngModel)]="newUserWebsite" type="text" name="w" id="w">
+        </div>
+        <div>
+            <label for="c">City</label>
+            <input [(ngModel)]="newUserCity" type="text" name="c" id="c">
+        </div>
+    </div>
+    <div>
+        <button (click)="SaveNewUser()">Save</button>
+    </div>
+</div>

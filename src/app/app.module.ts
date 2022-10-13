@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RootComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { ChildComponent } from './components/child/child.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FirstDirective } from './directives/first.directive';
 import { TestComponent } from './components/test/test.component';
 import { RouterModule } from '@angular/router';
@@ -13,6 +13,8 @@ import { apiService } from './services/api.service';
 import { EmployeeService } from './services/employee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FakeComponent } from './components/fake/fake.component';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+import { TemplateDrivenComponent } from './components/template-driven/template-driven.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FakeComponent } from './components/fake/fake.component';
     TestComponent,
     TempComponent,
     NewComponent,
-    FakeComponent
+    FakeComponent,
+    ReactiveFormComponent,
+    TemplateDrivenComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { FakeComponent } from './components/fake/fake.component';
     ]),
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [apiService, EmployeeService],
   exports: [],
