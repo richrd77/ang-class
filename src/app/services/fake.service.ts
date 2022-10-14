@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { EMPTY, Observable } from "rxjs";
+import { EMPTY, Observable, Observer } from "rxjs";
 import { User } from "../models/user";
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from "rxjs/operators";
@@ -27,5 +27,13 @@ export class FakeService {
     PostNewUser(newUser: User): Observable<number> {
         return this.httpClient123.post(this.url, newUser)
             .pipe(map((response: any) => response.id));
+    }
+
+    UpdateUser(newUser: User): Observable<User> {
+        return this.httpClient123.patch<User>(this.url + '/' + newUser.id, newUser);
+    }
+
+    DeleteUser(id: number): Observable<any> {
+        return this.httpClient123.delete(this.url + '/' + id);
     }
 }

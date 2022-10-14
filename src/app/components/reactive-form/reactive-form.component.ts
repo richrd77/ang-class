@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/models/user';
+import { FakeService } from 'src/app/services/fake.service';
 
 @Component({
   selector: 'app-reactive-form',
@@ -19,7 +21,7 @@ export class ReactiveFormComponent implements OnInit {
 
   newUserFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private service: FakeService) {
     this.newUserFormGroup = formBuilder.group({
       newUserName: new FormControl('', [Validators.required]),
       newUserEmail: new FormControl('', [Validators.email, Validators.required]),
@@ -35,8 +37,13 @@ export class ReactiveFormComponent implements OnInit {
   FormSubmitEvent(): void {
     console.log(this.newUserFormGroup);
     if (this.newUserFormGroup.valid) {
-      alert('form is valid');
+      // alert('form is valid');
       // Make ajax call
+      this.service.PostNewUser(new User({
+        name: this.newUserFormGroup.controls.newUserName.value,
+      username: this.newUserFormGroup.controls.newUserEmail.value,
+      website: this.newUserFormGroup.controls.newUserWebsite.value, address: { city: this.newUserFormGroup.controls.newUserCity.value }
+      })).subscribe(s => console.log(s));
     } else {
       alert('form is not valid');
     }
